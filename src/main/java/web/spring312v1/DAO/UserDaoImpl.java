@@ -35,17 +35,6 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public Optional<User> getUserById(Long id) {
-
-        User user = entityManager.find(User.class, id);
-        if (user == null) {
-            return Optional.empty();
-        }
-
-        return Optional.ofNullable(user);
-    }
-
-    @Override
     public List<User> getAllUsers() {
         return entityManager.createQuery("From User", User.class).getResultList();
     }

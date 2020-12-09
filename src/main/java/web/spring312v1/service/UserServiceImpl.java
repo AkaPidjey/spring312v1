@@ -49,12 +49,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     @Transactional
-    public Optional<User> getUserById(Long id) {
-        return userDao.getUserById(id);
-    }
-
-    @Override
-    @Transactional
     public List<User> getAllUsers() {
         return userDao.getAllUsers();
     }
@@ -76,18 +70,5 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
         return userDao.getUserByLogin(login).get();
     }
-
-//    @Override
-//    @Transactional(readOnly = true)
-//    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-//
-//        User user = userDao.getUserByLogin(login).get();
-//        Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-//        for (Role role : user.getRoles()) {
-//            grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
-//        }
-//        return user;
-//    }
-
 
 }
